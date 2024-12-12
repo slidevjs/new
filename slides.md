@@ -41,61 +41,125 @@ https://www.envestnet.com/
 -->
 
 ---
-
 transition: slide-up
 level: 2
-
 ---
 
 # What To Expect
 <br>
-<v-clicks>
-  <p>Fundamentals of Fullstack Web</p>
-  <p>Writing responsible code</p>
-  <p>Getting Industry Ready</p>
-</v-clicks>
+  <p class="m-0 p-0" v-click>Fundamentals of Fullstack Web</p>
+  <span class="inline-block">
+    <p v-click v-mark.orange.underline="4">Writing responsible code</p>
+    <p v-click class="inline-block" v-mark.orange.underline="4">Getting Industry Ready</p>
+  </span>
+
 
 
 <!--
-- Responsible code and industry ready is closely related
 - You need to know what you are writing
 - You need to know others will work on the same code
 - Example - Error Handling
+- Responsible code and industry ready is closely related
 -->
 
 ---
 
-# Navigation
+# How to Follow Along
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+<br>
+<v-clicks>
+  <p>Slides + Code</p>
+  <p>Ask Questions Anytime</p>
+  <p>Notes?</p>
+</v-clicks>
 
-## Keyboard Shortcuts
+---
+transition: slide-up
+layout: statement
+---
 
-|                                                    |                             |
-| -------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                | next animation or slide     |
-| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                      | previous slide              |
-| <kbd>down</kbd>                                    | next slide                  |
+# The Journey of a Web Request
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
+<br>
 
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
+<v-clicks>
+<p >
+<img class="inline"  src="https://fonts.gstatic.com/s/e/notoemoji/latest/261d_fe0f/512.gif" alt="☝" width="32" height="32">
+ User initiates action</p>
+<p><img class="inline" src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6eb/512.gif" alt="🛫" width="32" height="32">
+ Request travels through network</p>
+<p><img class="inline" src="https://fonts.gstatic.com/s/e/notoemoji/latest/2699_fe0f/512.gif" alt="⚙" width="32" height="32"> Servers process the request</p>
 
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+<p><img class="inline" src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6ec/512.gif" alt="🛬" width="32" height="32"> Data transforms and travels</p>
+<p><img class="inline"  src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f440/512.gif" alt="👀" width="32" height="32"> User sees the result</p>
+</v-clicks>
 
 ---
 
-layout: two-cols
-layoutClass: gap-16
+<img src="/request-1.png" />
+
+<!--
+
+## Authentication
+<br>
+Take an example of a banking app. 
+<br>
+
+- User can type their mail(or mobile or any unique data point), and get their current account details, bank balance and all
+- Cant anybody get details of everyone by brute force?
+
+## Authorization
+- If one person knows the email of the other person, even if the person is
+authenticated, where is the logic to identify if the current user is actually asking only for their data
+-->
 
 ---
 
+<img src="/request-2.png" />
+
+<!--
+## Consider URL Shortner
+
+- Same request is made by thousands of users. 
+- request -> server fires a request to check database for the shortened url -> database returns the complete url
+
+## Other examples
+- Election, new data is came in every 5 minutes
+- Banking app itself, where we show like currency exchange rate( same for all users)
+
+-->
+
+---
+
+<img src="/request-3.png" />
+
+<!--
+## Why cache ?
+- Faster data retrieval : cache stored in memory, significantly faster than accessing data from a hard disk, better UX
+- Reduced database load, improving Scalability
+
+## What happens when our app go viral ?
+- URL Shortner goes viral. Our server is overloaded
+- First, we can improve our server resources (increase cpu and ram)
+- But what happens when its practically impossible? : We can introduce more servers
+- Scaling is implemented. We have done VERTICAL and HORIZONTAL scaling
+- How to choose which request to pass to which server? : LOAD BALANCER
+
+-->
+
+---
+
+<img src="/request-4.png" />
+
+<!--
+Scaling is extremely important in the modern web as it allows websites and applications to handle increasing user traffic and data loads without experiencing performance issues or service disruptions
+
+- We can scale db and cache, auth services as well and bring them closer to the user
+- An Indian user dont have to request american db's for data, we can introduce a new server in Mumbai to provide better UX
+
+-->
+
+---
 # Table of contents
 
 You can use the `Toc` component to generate a table of contents for your slides:
